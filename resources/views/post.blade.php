@@ -13,7 +13,7 @@
         <!-- バリデーションエラーの表示 -->
         @include('common.errors')
         <div class="my-icon">
-            <img src="{{asset($login_user->user_image)}}" class="user-icon">
+            <img src="{{ $login_user->user_image }}" class="user-icon">
         </div>
         <form action="/postTweet" method="POST" enctype="multipart/form-data">
             @csrf

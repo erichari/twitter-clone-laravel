@@ -24,7 +24,7 @@
             <div class="tweet">
                 <div class="my-icon">
                     <a href="/profile/{{$notification->sent_user_id}}">
-                        <img src="{{ asset($notification->user_image) }}" class="user-icon">
+                        <img src="{{ $notification->user_image }}" class="user-icon">
                     </a>
                 </div>
 

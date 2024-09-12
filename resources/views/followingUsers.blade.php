@@ -19,7 +19,7 @@
                         <div class="tweet">
                             <div class="my-icon">
                                 <a href="/profile/{{$following_user->u_id}}">
-                                    <img src="{{ asset($following_user->user_image) }}" class="user-icon">
+                                    <img src="{{ $following_user->user_image }}" class="user-icon">
                                 </a>
                             </div>
 
@@ -52,7 +52,7 @@
                         <div class="tweet">
                             <div class="my-icon">
                                 <a href="/profile/{{$follower->u_id}}">
-                                    <img src="{{ asset($follower->user_image) }}" class="user-icon">
+                                    <img src="{{ $follower->user_image }}" class="user-icon">
                                 </a>
                             </div>
 

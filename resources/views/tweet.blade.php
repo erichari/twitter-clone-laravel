@@ -17,7 +17,7 @@
             <div class="my-icon">
                 <a href="/tweet/{{$replied_tweet->id}}" class="stretched-link"></a>
                 <a href="/profile/{{$replied_tweet->user_id}}">
-                    <img src="{{ asset($replied_tweet->user_image) }}" class="user-icon">
+                    <img src="{{ $replied_tweet->user_image }}" class="user-icon">
                 </a>
             </div>
 
@@ -40,14 +40,14 @@
                     <p>{{ $replied_tweet->body }}</p>
                     @if($replied_tweet->tweet_image)
                     <div class="tweet-image" data-bs-toggle="modal" data-bs-target="#js-modal-image-{{$replied_tweet->id}}">
-                            <img src="{{ asset($replied_tweet->tweet_image) }}">
+                            <img src="{{ $replied_tweet->tweet_image }}">
                     </div>
                     @endif
 
                     <div class="modal fade" id="js-modal-image-{{$replied_tweet->id}}" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
-                                <img src="{{ asset($replied_tweet->tweet_image) }}">
+                                <img src="{{ $replied_tweet->tweet_image }}">
                             </div>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                                     <div class="tweet mb-3">
                                         <div class="my-icon">
                                             <a href="/profile/{{$replied_tweet->user_id}}">
-                                                <img src="{{ asset($replied_tweet->user_image) }}" class="user-icon">
+                                                <img src="{{ $replied_tweet->user_image }}" class="user-icon">
                                             </a>
                                         </div>
 
@@ -99,7 +99,7 @@
                                         <!-- バリデーションエラーの表示 -->
                                         @include('common.errors')
                                         <div class="my-icon">
-                                            <img src="{{asset($login_user->user_image)}}" class="user-icon">
+                                            <img src="{{ $login_user->user_image }}" class="user-icon">
                                         </div>
                                         <form action="/postTweet" method="POST" enctype="multipart/form-data">
                                             @csrf
@@ -146,7 +146,7 @@
                                         <!-- バリデーションエラーの表示 -->
                                         @include('common.errors')
                                         <div class="my-icon">
-                                            <img src="{{asset($login_user->user_image)}}" class="user-icon">
+                                            <img src="{{ $login_user->user_image }}" class="user-icon">
                                         </div>
                                         <form action="/postTweet" method="POST" enctype="multipart/form-data">
                                             @csrf
@@ -155,7 +155,7 @@
 
                                             <div class="tweet quote-tweet mb-3">
                                                 <div class="my-icon quote-icon">
-                                                    <img src="{{ asset($replied_tweet->user_image) }}" class="user-icon">
+                                                    <img src="{{ $replied_tweet->user_image }}" class="user-icon">
                                                 </div>
 
                                                 <div class="tweet-container">
@@ -209,7 +209,7 @@
                         <div class="detail-name">
                             <div class="my-icon">
                                 <a href="/profile/{{$requested_tweet->user_id}}">
-                                    <img src="{{ asset($requested_tweet->user_image) }}" class="user-icon">
+                                    <img src="{{ $requested_tweet->user_image }}" class="user-icon">
                                 </a>
                             </div>
                             <div class="">
@@ -231,7 +231,7 @@
                         <p>{{ $requested_tweet->body }}</p>
                         @if($requested_tweet->tweet_image)
                         <div class="tweet-image" data-bs-toggle="modal" data-bs-target="#js-modal-image-{{$requested_tweet->id}}">
-                                <img src="{{ asset($requested_tweet->tweet_image) }}">
+                                <img src="{{ $requested_tweet->tweet_image }}">
                         </div>
                         @endif
 
@@ -240,7 +240,7 @@
                         <div class="tweet quote-tweet quote mb-3">
                             <a href="/tweet/{{$requested_tweet->retweet_id}}" class="stretched-link quote-stretched-link"></a>
                             <div class="my-icon quote-icon">
-                                <img src="{{ asset($requested_tweet->retweet_user_image) }}" class="user-icon">
+                                <img src="{{ $requested_tweet->retweet_user_image }}" class="user-icon">
                             </div>
                             <div class="tweet-container">
                                 <div class="name-area">
@@ -262,7 +262,7 @@
                         <div class="modal fade" id="js-modal-image-{{$requested_tweet->id}}" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <img src="{{ asset($requested_tweet->tweet_image) }}">
+                                    <img src="{{ $requested_tweet->tweet_image }}">
                                 </div>
                             </div>
                         </div>
@@ -291,7 +291,7 @@
                                         <div class="tweet mb-3">
                                             <div class="my-icon">
                                                 <a href="/profile/{{$requested_tweet->user_id}}">
-                                                    <img src="{{ asset($requested_tweet->user_image) }}" class="user-icon">
+                                                    <img src="{{ $requested_tweet->user_image }}" class="user-icon">
                                                 </a>
                                             </div>
 
@@ -315,7 +315,7 @@
                                             <!-- バリデーションエラーの表示 -->
                                             @include('common.errors')
                                             <div class="my-icon">
-                                                <img src="{{asset($login_user->user_image)}}" class="user-icon">
+                                                <img src="{{ $login_user->user_image }}" class="user-icon">
                                             </div>
                                             <form action="/postTweet" method="POST" enctype="multipart/form-data">
                                                 @csrf
@@ -362,7 +362,7 @@
                                             <!-- バリデーションエラーの表示 -->
                                             @include('common.errors')
                                             <div class="my-icon">
-                                                <img src="{{asset($login_user->user_image)}}" class="user-icon">
+                                                <img src="{{ $login_user->user_image }}" class="user-icon">
                                             </div>
                                             <form action="/postTweet" method="POST" enctype="multipart/form-data">
                                                 @csrf
@@ -371,7 +371,7 @@
 
                                                 <div class="tweet quote-tweet mb-3">
                                                     <div class="my-icon quote-icon">
-                                                        <img src="{{ asset($requested_tweet->user_image) }}" class="user-icon">
+                                                        <img src="{{ $requested_tweet->user_image }}" class="user-icon">
                                                     </div>
 
                                                     <div class="tweet-container">

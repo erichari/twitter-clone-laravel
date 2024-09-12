@@ -271,15 +271,23 @@ class TweetController extends Controller
             ]);
 
             if($request->tweet_image){
-                $dir = 'tweet';
-                $image_name = $request->user()->id . '_' . date('YmdHis');
-                $request->tweet_image->storeAs('public/'.$dir, $image_name);
-                $request->tweet_image = 'storage/'.$dir.'/'.$image_name;
-                }
+                //////// storageを使う場合
+                // $dir = 'tweet';
+                // $image_name = $request->user()->id . '_' . date('YmdHis');
+                // $request->tweet_image->storeAs('public/'.$dir, $image_name);
+                // $request->tweet_image = 'storage/'.$dir.'/'.$image_name;
+                
+                // base64を使う場合
+                $base64Image = base64_encode(file_get_contents($request->tweet_image->getRealPath()));
+                $mimeType = $request->tweet_image->getMimeType();
+                $tweet_image = 'data:' . $mimeType . ';base64,' . $base64Image;
+            }else{
+                $tweet_image = null;
+            }
 
             $request->user()->tweets()->create([
                 'body' => $request->body,
-                'tweet_image' => $request->tweet_image,
+                'tweet_image' => $tweet_image,
                 'retweet_id' => $request->retweet_id,
             ]);
 
@@ -298,15 +306,22 @@ class TweetController extends Controller
             //    'image_name' => $request->image_name,
             //]);
             if($request->tweet_image){
-                $dir = 'tweet';
-                $image_name = $request->user()->id . '_' . date('YmdHis');
-                $request->tweet_image->storeAs('public/'.$dir, $image_name);
-                $request->tweet_image = 'storage/'.$dir.'/'.$image_name;
-                }
+                //////// storageを使う場合
+                // $dir = 'tweet';
+                // $image_name = $request->user()->id . '_' . date('YmdHis');
+                // $request->tweet_image->storeAs('public/'.$dir, $image_name);
+                // $request->tweet_image = 'storage/'.$dir.'/'.$image_name;
+                // }
+                $base64Image = base64_encode(file_get_contents($request->tweet_image->getRealPath()));
+                $mimeType = $request->tweet_image->getMimeType();
+                $tweet_image = 'data:' . $mimeType . ';base64,' . $base64Image;
+            }else{
+                $tweet_image = null;
+            }
 
             $request->user()->tweets()->create([
                 'body' => $request->body,
-                'tweet_image' => $request->tweet_image,
+                'tweet_image' => $tweet_image,
                 'reply_id' => $request->reply_id,
             ]);
 
