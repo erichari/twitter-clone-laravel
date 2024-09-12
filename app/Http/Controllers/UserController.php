@@ -167,33 +167,45 @@ class UserController extends Controller
             'updated_at' => now(),
         ]);
 
+        //ヘッダーがアップロードされてる場合
         if($request->header_image){
             $this->validate($request, [
                 'header_image' => 'file|image|mimes:jpeg,png,jpg|max:1000',
             ]);
 
-            $dir = 'header';
-            $image_name = $request->user()->id . '_' . date('YmdHis');
-            $request->header_image->storeAs('public/'.$dir, $image_name);
-            $request->header_image = 'storage/'.$dir.'/'.$image_name;
+            //////// storageを使う場合
+            // $dir = 'header';
+            // $image_name = $request->user()->id . '_' . date('YmdHis');
+            // $request->header_image->storeAs('public/'.$dir, $image_name);
+            // $request->header_image = 'storage/'.$dir.'/'.$image_name;
+
+            //base64を使う場合
+            $base64Image = base64_encode(file_get_contents($request->header_image->getRealPath()));
+            $mimeType = $request->header_image->getMimeType();
 
             User::find($login_user->id)->update([
-                'header_image' => $request->header_image,
+                'header_image' => 'data:' . $mimeType . ';base64,' . $base64Image,
             ]);
             }
 
+        //アイコンがアップロードされてる場合
         if($request->image){
             $this->validate($request, [
                 'image' => 'file|image|mimes:jpeg,png,jpg|max:1000',
             ]);
 
-            $dir = 'user';
-            $image_name = $request->user()->id . '_' . date('YmdHis');
-            $request->image->storeAs('public/'.$dir, $image_name);
-            $request->image = 'storage/'.$dir.'/'.$image_name;
+            //////// storageを使う場合
+            // $dir = 'user';
+            // $image_name = $request->user()->id . '_' . date('YmdHis');
+            // $request->image->storeAs('public/'.$dir, $image_name);
+            // $request->image = 'storage/'.$dir.'/'.$image_name;
 
+            //base64を使う場合
+            $base64Image = base64_encode(file_get_contents($request->image->getRealPath()));
+            $mimeType = $request->image->getMimeType();
+            
             User::find($login_user->id)->update([
-                'user_image' => $request->image,
+                'user_image' => 'data:' . $mimeType . ';base64,' . $base64Image,
             ]);
         }
 

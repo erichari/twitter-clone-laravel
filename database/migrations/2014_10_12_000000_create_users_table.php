@@ -20,8 +20,8 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password', 128);
             $table->string('profile', 160)->nullable();
-            $table->string('user_image', 100)->nullable()->default(NULL);
-            $table->string('header_image', 100)->nullable()->default(NULL);
+            $table->longText('user_image')->nullable()->default(NULL);
+            $table->longText('header_image')->nullable()->default(NULL);
             $table->rememberToken();
             $table->timestamps();
         });

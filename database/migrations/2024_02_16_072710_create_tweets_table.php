@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('status', 20)->default('active');
             $table->integer('user_id')->index();
             $table->string('body', 140)->nullable();
-            $table->string('tweet_image', 500)->nullable();
+            $table->longText('tweet_image')->nullable();
             $table->integer('reply_id')->nullable();
             $table->integer('retweet_id')->nullable();
             $table->timestamps();
