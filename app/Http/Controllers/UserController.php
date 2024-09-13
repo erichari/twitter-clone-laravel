@@ -154,7 +154,7 @@ class UserController extends Controller
 
         $this->validate($request, [
             'nickname' => 'required|max:50',
-            'name' => 'required|max:50',
+            'name' => 'required|max:50|regex:/^[a-zA-Z0-9-_]+$/',
             'email' => 'required|max:255|email',
             'profile' => 'max:160',
         ]);
