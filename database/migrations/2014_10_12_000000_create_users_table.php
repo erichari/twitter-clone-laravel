@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('password', 128);
             $table->string('profile', 160)->nullable();
             $table->longText('user_image');
-            $table->longText('header_image')->default('images/img/default-header.png');
+            $table->longText('header_image');
             $table->rememberToken();
             $table->timestamps();
         });

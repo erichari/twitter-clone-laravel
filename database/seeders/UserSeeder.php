@@ -23,6 +23,7 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('password'),
                 'profile' => 'たろうと申します。よろしくお願いします。',
                 'user_image' => 'images/img/icon-default-user.svg',
+                'header_image' => 'images/img/default-header.png',
             ],
             [
                 'nickname' => 'じろう',
@@ -31,6 +32,7 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('password'),
                 'profile' => '趣味はクロスバイクです。',
                 'user_image' => 'images/img/icon-default-user.svg',
+                'header_image' => 'images/img/default-header.png',
             ],
             [
                 'nickname' => 'さぶろう',
@@ -39,6 +41,7 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('password'),
                 'profile' => '',
                 'user_image' => 'images/img/icon-default-user.svg',
+                'header_image' => 'images/img/default-header.png',
             ],
             [
                 'nickname' => 'かなちゃん',
@@ -47,6 +50,7 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('password'),
                 'profile' => '',
                 'user_image' => 'images/img/icon-default-user.svg',
+                'header_image' => 'images/img/default-header.png',
             ],
                 ]);
     }
