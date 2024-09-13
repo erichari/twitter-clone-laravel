@@ -3,9 +3,6 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div>
-            <img src="{{asset('/images/img/logo-white.svg')}}">
-        </div>
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('アカウントを作る') }}</div>
@@ -15,7 +12,7 @@
                         @csrf
 
                         <div class="row mb-3">
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <input id="nickname" type="text" class="form-control @error('nickname') is-invalid @enderror" name="nickname" placeholder="ニックネーム" value="{{ old('nickname') }}" required autocomplete="nickname" autofocus>
 
                                 @error('nickname')
@@ -27,7 +24,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="ユーザー名、例)techis123" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
@@ -39,7 +36,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="メールアドレス" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
@@ -51,7 +48,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="パスワード" required autocomplete="new-password">
 
                                 @error('password')
@@ -63,22 +60,21 @@
                         </div>
 
                         <div class="row mb-3">
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="パスワード確認" required autocomplete="new-password">
                             </div>
                         </div>
 
                         <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-12 d-flex justify-content-between">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('登録する') }}
                                 </button>
+                                
+                                <a class="btn btn-link" href="/login">ログインする</a>
                             </div>
                         </div>
                     </form>
-                    <div>
-                        <a href="/login">ログインする</a>
-                    </div>
                 </div>
             </div>
         </div>
