@@ -13,11 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/top', [App\Http\Controllers\TweetController::class, 'tweets'])->name('top');
+Route::get('/', [App\Http\Controllers\TweetController::class, 'tweets'])->name('top');
 Auth::routes();
 
 Route::get('/post', [App\Http\Controllers\TweetController::class, 'post'])->name('post');
